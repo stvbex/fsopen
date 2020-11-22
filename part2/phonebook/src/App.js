@@ -80,6 +80,14 @@ const App = () => {
               setNotificationMessage(null)
             }, 5000)
           })
+          .catch(error => {
+            setNotificationColor('red')
+            setNotificationMessage(error.response.data.error)
+  
+            setTimeout(() => {
+              setNotificationMessage(null)
+            }, 5000)
+          })
       }
 
     }
@@ -97,6 +105,14 @@ const App = () => {
           // Notify
           setNotificationColor('green')
           setNotificationMessage(`Added ${newPerson.name}`)
+
+          setTimeout(() => {
+            setNotificationMessage(null)
+          }, 5000)
+        })
+        .catch(error => {
+          setNotificationColor('red')
+          setNotificationMessage(error.response.data.error)
 
           setTimeout(() => {
             setNotificationMessage(null)
